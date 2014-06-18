@@ -1,0 +1,22 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "*",
+    "node-phantom": "*",
+    "request": "*",
+    "socket.io": "*",
+    "twitter": "*",
+    "xmljson": "*"
+  },
+  "engines": {
+    "node": "0.10.*",
+    "npm": "*"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.7.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-coffee": "^0.10.1"
+  }
+}

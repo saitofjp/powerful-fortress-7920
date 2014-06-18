@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title> tw </title>
+  <link href="css/toastr.css" rel="stylesheet"/>
+  <style>
+    #toast-container > div {
+      border-radius: 0px;
+      box-shadow: none;
+      color: #ffffff;
+      font-size: 20px;
+    }
+    .toast-info {
+      background-color: #000000;
+    }
+    .toast-warning {
+      background-color: #000000;
+    }
+    .toast-info img {
+      width: 16px;
+      height: 16px;;
+    }
+
+    #toast-container > .toast-info {
+      background-image: none !important;
+    }
+  </style>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/lib/jquery.js"></script>
+  <script src="js/lib/toastr.js"></script>
+  <script src="js/lib/lodash.js"></script>
+  <script src="js/ws.js" ></script>
+  <script>
+
+    toastr.options.positionClass = "toast-top-full-width"
+    toastr.options.timeOut = 20*1000;
+
+    var socket = new Ws();
+    socket.on('tw', function (tw) {
+      toastr.info("<img src='" + tw.profile_image_url + "'>&nbsp;" + tw.text );
+    });
+    socket.on('twfull', function (tw) {
+      console.log(tw)
+    });
+
+    socket.on('msg', function (data) {
+      toastr.warning(data);
+    });
+
+  </script>
+</head>
+<body style="background-color: #1452b7">
+<ul>
+  <div id="tweets"></div>
+</ul>
+</body>
+</html>

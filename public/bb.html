@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head >
+  <title></title>
+  <style>
+  </style>
+</head>
+<body style="background-color: #1452b7">
+
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/lib/jquery.js"></script>
+<script src="js/lib/d3.js"></script>
+<script src="js/lib/d3.circle-text.js"></script>
+<script src="js/lib/lodash.js"></script>
+<script src="js/ws.js" ></script>
+<script>
+  var socket = new Ws();
+
+  var doc = document.documentElement
+  var w = doc.clientWidth-20
+  var h = doc.clientHeight-20
+
+  var format = d3.format(",d"),
+      color = d3.scale.category20c();
+
+
+
+  var bubble = d3.layout.pack()
+      .sort(function(d){ return d.value })
+      .size([w, h])
+      .radius(function(value){  return Math.sqrt(value)+30 } )
+      .padding(5);
+
+  var svg = d3.select("body").append("svg")
+      .attr("width", w)
+      .attr("height", h)
+      .attr("class", "bubble");
+
+  var i=0;
+  var nodes = {children:[]};
+  var map ={};
+
+  socket.on("tw",function(tw){
+    _.toArray(map).forEach(function(d){
+       d.value--;
+       if(d.value == 0)
+         delete map[d.id]
+
+    });
+
+    if(tw.retweeted_status) {
+      map[tw.retweeted_status.id_str] = {
+        id : tw.retweeted_status.id_str,
+        name : tw.retweeted_status.text,
+        value: tw.retweeted_status.retweet_count + 10
+      }
+    }
+    map[tw.id_str] ={
+      id :tw.id_str,
+      name:tw.text,
+      value: 10
+    }
+    nodes.children = _.toArray(map);
+    update();
+
+  });
+
+  function update(){
+    var node = svg.selectAll(".node")
+        .data(bubble.nodes(nodes).filter(function(d){ return !d.children}), function(d){return d.id});
+
+    node.exit().remove();
+
+    node.transition()
+        .delay(10)
+        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+        .select("circle").attr("r", function(d) { return d.r; })
+
+
+    var g = node.enter().append("g")
+        .attr("class", "node")
+        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+    g.append("circle")
+        .style("fill", function() { return color(i++); })
+        .attr("r",  function(d) { return (d.r > 100) ? d.r-10 : 100 ; })
+        .transition()
+          .duration(500)
+         .delay(10)
+          .attr("r", function(d) { return d.r; })
+
+  }
+
+  setInterval(function(){
+    svg.selectAll(".node text").remove();
+    svg.selectAll(".node").append("text")
+        .text(function(d) {  if(d.value > 10) return d.name.substring(0,50); })
+        .style( {
+          "fill": "#fff",
+          "text-anchor": "middle",
+          "opacity": 0
+        })
+        .transition()
+          .duration(1000)
+          .delay(function(d,i){return i*500})
+          .style("opacity",1)
+        .each("end", function(){
+          d3.select(this).transition()
+              .duration(2000)
+              .delay(function(d,i){return i*100})
+              .style("opacity",0)
+        })
+
+  },10000);
+
+
+</script>
+</html>

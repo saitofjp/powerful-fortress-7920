@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    iframe {
+      border: none;
+    }
+  </style>
+</head>
+<body style="background-color: #1452b7;">
+<article class="kontext">
+  <div class="layer " id="twwc"></div>
+  <div class="layer " id="tw"></div>
+
+</article>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/lib/jquery.js"></script>
+<script src="js/lib/lodash.js"></script>
+<script src="js/ws.js" ></script>
+
+<script>
+  var config = $.extend(true, {
+    time:180 * 1000
+  }, JSON.parse(window.location.hash.replace("#","") || "{}"))
+
+  var socket = new Ws();
+
+  var width = document.documentElement.clientWidth-20,
+      height = document.documentElement.clientHeight-20;
+
+  var f1 = document.createElement("iframe");
+  f1.src = "twwc.html";
+  f1.width = width;
+  f1.height = height;
+
+  var f2 = document.createElement("iframe");
+  f2.src = "tw.html";
+  f2.width = width;
+  f2.height = height;
+
+  $("#twwc").append(f1);
+  $("#tw").hide().append(f2);
+  function chnage (){
+      $("#twwc").toggle();
+      $("#tw").toggle()
+  };
+
+  setInterval(chnage,config.time);
+  socket.on("cmd", function(data){
+    if(data == "next") {
+      chnage();
+    }
+  })
+
+</script>
+</html>

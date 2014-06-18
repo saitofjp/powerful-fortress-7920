@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hatena.b.search</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    
+  </head>
+  <body style="padding-top: 50px;">
+
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">hatena.b.search</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right">
+        <input type="text" class="form-control" placeholder="Search..."
+           data-bind='value: inputKeyword, valueUpdate: "afterkeydown"'>
+      </form>
+    </div>
+  </div>
+</div>
+    
+<div class="container-fluid">
+  <h2 class="sub-header">
+    <span data-bind="text:serchKeyword"></span>
+  </h2>
+  <div class="table-responsive" >
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th >title</th>
+        <th>description</th>
+        <th>link</th>        
+      </tr>
+    </thead>
+    <tbody data-bind="foreach: items" >
+      <tr>
+        <td data-bind="text:title"></td>
+        <td data-bind="text:description"></td>
+        <td ><a data-bind="attr: { href: link, target: '_blank' }">link</a></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+
+<script src="js/lib/jquery.js"></script>
+<script src="js/lib/bootstrap.js"></script>
+<script src="js/lib/knockout-3.0.0.js"></script>
+<script>
+
+function Item(data) {
+    this.title = ko.observable(data.title);
+    this.link = ko.observable(data.link);
+    this.description = ko.observable(data.description);
+}
+
+function AppViewModel() {
+    var self = this;
+    
+    self.items = ko.observableArray([]);
+    
+    self.inputKeyword = ko.observable("javascript");
+    self.serchKeyword = ko.computed(self.inputKeyword)
+                            .extend({ throttle: 800 });
+
+    self.serchKeyword.subscribe(function (val) {
+       self.search();
+    });
+    
+    self.search = function() {
+      var keyword = self.serchKeyword();
+      if( keyword == "" ) {
+        self.items([]);
+        return;
+      }
+      
+      $.getJSON("/b.hatena/"+keyword+".json", function(data) {
+          self.items($.map(data, function(item) { return new Item(item) }));
+      });    
+    };
+    
+    self.search();
+}
+
+$(function(){
+   ko.applyBindings(new AppViewModel());
+});
+            
+</script>
+
+  </body>
+</html>
