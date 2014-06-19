@@ -23,8 +23,7 @@ class WordCloud
     if not @stage?
       @stage = svg.append("g")
 
-    @stage.attr("transform", d3.svg.transform()
-            .translate((d) -> return [ width >> 1 ,  height >> 1 ] ) ) #word cound は真ん中に表示する
+    @stage.attr("transform", d3.svg.transform().translate((d) -> return [ width >> 1 ,  height >> 1 ] ) ) #word cound は真ん中に表示する
 
     #レイアウトを作成
     random = d3.random.irwinHall(2)
