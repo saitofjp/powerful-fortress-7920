@@ -4,8 +4,9 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Generated files" level="project" />
     <orderEntry type="library" name="Node.js Dependencies for myapp" level="project" />
+    <orderEntry type="library" name="Generated files" level="project" />
+    <orderEntry type="library" name="powerful-fortress-7920 node_modules" level="project" />
   </component>
 </module>
 

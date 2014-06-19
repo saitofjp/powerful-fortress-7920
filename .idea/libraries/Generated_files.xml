@@ -2,14 +2,14 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/routes/index.js" />
-        <item url="file://$PROJECT_DIR$/public/js/word.cloud.js" />
-        <item url="file://$PROJECT_DIR$/routes/tw.stream.js" />
-        <item url="file://$PROJECT_DIR$/public/js/twwc.app.js" />
-        <item url="file://$PROJECT_DIR$/Gruntfile.js" />
         <item url="file://$PROJECT_DIR$/app.js" />
-        <item url="file://$PROJECT_DIR$/public/js/ws.js" />
+        <item url="file://$PROJECT_DIR$/Gruntfile.js" />
+        <item url="file://$PROJECT_DIR$/public/js/twwc.app.js" />
         <item url="file://$PROJECT_DIR$/public/js/word.repo.js" />
+        <item url="file://$PROJECT_DIR$/public/js/word.cloud.js" />
+        <item url="file://$PROJECT_DIR$/routes/index.js" />
+        <item url="file://$PROJECT_DIR$/routes/tw.stream.js" />
+        <item url="file://$PROJECT_DIR$/public/js/ws.js" />
         <item url="file://$PROJECT_DIR$/node_modules/xmljson/node_modules/xml2js/83.js" />
         <item url="file://$PROJECT_DIR$/node_modules/xmljson/node_modules/xml2js/text.js" />
       </sourceFilesUrls>
@@ -27,30 +27,19 @@
       <root url="file://$PROJECT_DIR$/routes/pdf.to.js" />
       <root url="file://$PROJECT_DIR$/routes/pdf.to.js" />
       <root url="file://$PROJECT_DIR$/test.js" />
-      <root url="file://$PROJECT_DIR$/routes/b.hatena.js" />
-      <root url="file://$PROJECT_DIR$/routes/pdf.js" />
-      <root url="file://$PROJECT_DIR$/routes/trc.js" />
-      <root url="file://$PROJECT_DIR$/routes/index.js" />
-      <root url="file://$PROJECT_DIR$/routes/b.hatena.js" />
-      <root url="file://$PROJECT_DIR$/public/js/word.cloud.js" />
-      <root url="file://$PROJECT_DIR$/Gruntfile.js" />
-      <root url="file://$PROJECT_DIR$/routes/pdf.js" />
-      <root url="file://$PROJECT_DIR$/public/js/twwc.app.js" />
-      <root url="file://$PROJECT_DIR$/Gruntfile.js" />
-      <root url="file://$PROJECT_DIR$/public/js/ws.js" />
-      <root url="file://$PROJECT_DIR$/public/js/word.repo.js" />
-      <root url="file://$PROJECT_DIR$/routes/trc.js" />
       <root url="file://$PROJECT_DIR$/app.js" />
-      <root url="file://$PROJECT_DIR$/routes/index.js" />
+      <root url="file://$PROJECT_DIR$/Gruntfile.js" />
+      <root url="file://$PROJECT_DIR$/public/js/twwc.app.js" />
+      <root url="file://$PROJECT_DIR$/public/js/word.repo.js" />
       <root url="file://$PROJECT_DIR$/public/js/word.cloud.js" />
+      <root url="file://$PROJECT_DIR$/routes/index.js" />
+      <root url="file://$PROJECT_DIR$/routes/trc.js" />
       <root url="file://$PROJECT_DIR$/routes/tw.stream.js" />
-      <root url="file://$PROJECT_DIR$/public/js/twwc.app.js" />
-      <root url="file://$PROJECT_DIR$/Gruntfile.js" />
-      <root url="file://$PROJECT_DIR$/app.js" />
-      <root url="file://$PROJECT_DIR$/public/js/ws.js" />
-      <root url="file://$PROJECT_DIR$/public/js/word.repo.js" />
       <root url="file://$PROJECT_DIR$/node_modules/xmljson/node_modules/xml2js/83.js" />
+      <root url="file://$PROJECT_DIR$/public/js/ws.js" />
+      <root url="file://$PROJECT_DIR$/routes/pdf.js" />
       <root url="file://$PROJECT_DIR$/node_modules/xmljson/node_modules/xml2js/text.js" />
+      <root url="file://$PROJECT_DIR$/routes/b.hatena.js" />
     </CLASSES>
     <SOURCES />
   </library>
