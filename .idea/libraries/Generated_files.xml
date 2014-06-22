@@ -8,10 +8,16 @@
         <item url="file://$PROJECT_DIR$/public/js/word.repo.js" />
         <item url="file://$PROJECT_DIR$/public/js/word.cloud.js" />
         <item url="file://$PROJECT_DIR$/routes/index.js" />
+        <item url="file://$PROJECT_DIR$/routes/trc.js" />
+        <item url="file://$PROJECT_DIR$/public/js/net.js" />
+        <item url="file://$PROJECT_DIR$/public/js/rtcc.app.js" />
         <item url="file://$PROJECT_DIR$/routes/tw.stream.js" />
-        <item url="file://$PROJECT_DIR$/public/js/ws.js" />
         <item url="file://$PROJECT_DIR$/node_modules/xmljson/node_modules/xml2js/83.js" />
+        <item url="file://$PROJECT_DIR$/public/js/ws.js" />
         <item url="file://$PROJECT_DIR$/node_modules/xmljson/node_modules/xml2js/text.js" />
+        <item url="file://$PROJECT_DIR$/routes/pdf.js" />
+        <item url="file://$PROJECT_DIR$/public/js/rtcd.app.js" />
+        <item url="file://$PROJECT_DIR$/routes/b.hatena.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -34,12 +40,15 @@
       <root url="file://$PROJECT_DIR$/public/js/word.cloud.js" />
       <root url="file://$PROJECT_DIR$/routes/index.js" />
       <root url="file://$PROJECT_DIR$/routes/trc.js" />
+      <root url="file://$PROJECT_DIR$/public/js/rtcc.app.js" />
+      <root url="file://$PROJECT_DIR$/public/js/net.js" />
       <root url="file://$PROJECT_DIR$/routes/tw.stream.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/xmljson/node_modules/xml2js/83.js" />
       <root url="file://$PROJECT_DIR$/public/js/ws.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/xmljson/node_modules/xml2js/83.js" />
       <root url="file://$PROJECT_DIR$/routes/pdf.js" />
       <root url="file://$PROJECT_DIR$/node_modules/xmljson/node_modules/xml2js/text.js" />
       <root url="file://$PROJECT_DIR$/routes/b.hatena.js" />
+      <root url="file://$PROJECT_DIR$/public/js/rtcd.app.js" />
     </CLASSES>
     <SOURCES />
   </library>
